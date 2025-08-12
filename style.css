@@ -29,7 +29,7 @@ body {
   align-items: center;
 }
 
-.container {
+.todo {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -71,13 +71,13 @@ h2 {
   transition: 200ms ease-in-out;
 }
 
-.todo-form {
+.input {
   position: relative;
   display: flex;
   margin-bottom: 1.5rem;
 }
 
-input {
+.input-field {
   width: 100%;
   border: 0.06rem solid #d2d2d2bf;
   border-radius: 0.5rem;
@@ -85,7 +85,11 @@ input {
   font-size: 1rem;
 }
 
-.list-container {
+input[type="text"]::placeholder {
+  color: var(--grey);
+}
+
+.todo-container {
   display: flex;
   gap: 1rem;
 }
@@ -104,12 +108,26 @@ li {
 }
 
 #todoList p {
+  display: flex;
+  gap: 1rem;
+  color: var(--dark);
+  align-items: center;
+}
+
+#todoList .disabled {
   color: #8f98a8;
 }
 
 .disabled {
   display: flex;
   text-decoration: line-through;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
 }
 
 input[type="checkbox"]::before {
@@ -124,7 +142,7 @@ input[type="checkbox"]::before {
   color: transparent;
 }
 
-input[type="checkbox"]::before::after {
+input[type="checkbox"]:checked::before {
   color: var(--white);
   background-color: var(--green);
   border: 0.076rem solid var(--green);
